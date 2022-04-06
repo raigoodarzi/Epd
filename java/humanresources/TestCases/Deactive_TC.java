@@ -84,7 +84,7 @@ public class Deactive_TC {
 		  deactive.DeactiveUser();
 		  
 		 
-	     Thread.sleep(2000);
+	     Thread.sleep(3000);
 	  
 	     driver.findElement(By.xpath("/html/body/app-root/div/app-hr-layout/div/app-header/header/div/div/div[2]/div[1]/a[2]")).click();  //return to landing 
   
