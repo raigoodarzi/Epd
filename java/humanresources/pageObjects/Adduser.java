@@ -3,16 +3,21 @@ package humanresources.pageObjects;
 import java.awt.Toolkit;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
+import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class Adduser {
-	WebDriver driver;
+	
+	
 @FindBy(id = "pName") WebElement name;
 
 @FindBy(id = "pFamilyName") WebElement FamilyName;
@@ -118,12 +123,16 @@ WebElement AddLocation;
 @FindBy(xpath = "/html/body/app-root/div/app-hr-layout/div/div/div/app-add-edit/div[2]/div[1]/button[1]")
 WebElement Save;
 
+
+
 public void AddEmploye(String Name , String familyName , String fatherName , String sex ,String birhtDate ,
 		String placeOfBirth , String Nationalcode , String status, String email,String tel ,String City,
 		String address ,String ZipCode ,String UserType ,String education ,String startDate ,String group ,
 		String Aria ,String role ,String startDate2 ,String education2 ,String Place ,String Duration ,String Unit) throws InterruptedException {
 	Thread.sleep(3000);
-	
+	//Actions action = new Actions(driver);
+	 WebDriver driver ;
+	   
  	StringSelection selection = new StringSelection(Name);
  	Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
  	clipboard.setContents(selection, null);
@@ -166,11 +175,7 @@ public void AddEmploye(String Name , String familyName , String fatherName , Str
 	NationalCode.sendKeys(Keys.CONTROL + "V");
 	NationalCode.sendKeys(Keys.TAB);
 	Thread.sleep(500);
-//	StringSelection selection7 = new StringSelection(status);
-//	clipboard.setContents(selection7, null);
-//	//H.highLighterMethod(driver, martialstaus);
-//	martialstaus.sendKeys(Keys.CONTROL+"V");
-	//martialstaus.click();
+
 	martialstaus.sendKeys("مجرد");
 	Thread.sleep(500);
 	martialstaus.sendKeys(Keys.ENTER);
@@ -241,7 +246,8 @@ public void AddEmploye(String Name , String familyName , String fatherName , Str
 	StartDate.sendKeys(Keys.CONTROL +"V");
 	
 	
-	
+	Thread.sleep(2000);
+	//driver.findElement(By.id("StartDateE")).sendKeys(Keys.PAGE_DOWN);
 	
 	//H.highLighterMethod(driver, Location);
 	Location.click();      //استقرار محل اطلاعات
@@ -275,14 +281,11 @@ public void AddEmploye(String Name , String familyName , String fatherName , Str
 	Role.sendKeys(Keys.ENTER);
 	
 
-//	StringSelection slection22 = new StringSelection(startDate2);
-//	clipboard.setContents(slection22, null);
-//	//H.highLighterMethod(driver,StartDate2);
-//	StartDate2.sendKeys(Keys.CONTROL +"V");
+
 	StartDate2.sendKeys(startDate2);
 	
 	
-	AddLocation.click();   //mahale esteghrar
+	//AddLocation.click();   //mahale esteghrar
 	
 	
 	Save.click();
